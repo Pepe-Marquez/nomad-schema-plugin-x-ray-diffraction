@@ -191,15 +191,16 @@ class XRayDiffractionWithSource(GenericXRD):
     source = SubSection(section_def=XRayConventionalSource)
 
 
-class XRayDiffraction(XRayDiffractionWithSource, Chemical, EntryData):
+class XRayDiffraction(XRayDiffractionWithSource, EntryData):
     '''
     Generic X-ray diffraction measurement.
     '''
     m_def = Section(
         a_eln=dict(lane_width='800px',
                    properties=dict(
-                       visible=dict(
-                           include=['data_file', 'chemical_formula']),
+                    #    visible=dict(
+                    #     #    include=['data_file', 'chemical_formula'],
+                    #        exclude=['location']),
                        editable=dict(
                            exclude=["location"]))),                  
         a_plot=[
